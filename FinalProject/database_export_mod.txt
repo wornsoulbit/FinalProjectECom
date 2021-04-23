@@ -1,0 +1,7 @@
+To get UTC timestamps to be default in your database table:
+1- Build the database with current_timestamp as your default
+2- Export your database
+3- Edit the database export file changing all current_timestamp() to utc_timestamp().
+4- Delete the database and import it back in.
+
+Caution: This value is not supported by phpMyAdmin and will cause certain functionality to crash or certain false errors to appear.
