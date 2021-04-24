@@ -2,8 +2,6 @@
 
 namespace App\controllers;
 
-use App\models\Profile;
-
 class ProfileController extends \App\core\Controller {
     
     function index() {
@@ -34,8 +32,8 @@ class ProfileController extends \App\core\Controller {
         if (isset($_POST["action"])) {
             $profile = new \App\models\Profile();
             $profile->user_id = $_SESSION['user_id'];
-            $profile->first_name = $_SESSION['first_name'];
-            $profile->last_name = $_SESSION['last_name'];
+            $profile->first_name = $_POST['first_name'];
+            $profile->last_name = $_POST['last_name'];
             $profile->insert();
             header("location:" . BASE . "Profile/index/$profile->profile_id");
         } else {
