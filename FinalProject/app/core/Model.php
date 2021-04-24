@@ -12,7 +12,7 @@ class Model{
 
 		//connect to the database
 		self::$connection = new \PDO("mysql:host=$host;dbname=$DBName;charset=utf8;", $username, $password);
-		//set what happens when ther are errors
+		//set what happens when there are errors
 		self::$connection->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 	}
 }
