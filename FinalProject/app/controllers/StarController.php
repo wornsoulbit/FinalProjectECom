@@ -23,8 +23,10 @@ class ProfileController extends \App\core\Controller {
         }
     }
 
-    function delete() {
-        
+    function delete($profile_id, $page_id) {
+        $star = new \App\models\Star();
+        $star->find($profile_id, $page_id);
+        $star->delete();
     }
 
 }
