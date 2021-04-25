@@ -2,11 +2,7 @@
 
 namespace App\controllers;
 
-class ProfileController extends \App\core\Controller {
-    
-    function index() {
-
-    }
+class StarController extends \App\core\Controller {
 
     function add() {
         if (isset($_POST["action"])) {
