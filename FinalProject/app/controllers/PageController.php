@@ -40,6 +40,17 @@ class PageController extends \App\core\Controller {
         }
     }
 
+    function delete($page_id) {
+        $page = new \App\models\Page();
+        $page = $page->find($page_id);
+        
+        $star = new \App\models\Star();
+        $star = $star->find($_SESSION['profile_id'], $page->$page_id);
+        $star->delete();
+        
+        $page->delete();
+    }
+
 }
 
 ?>

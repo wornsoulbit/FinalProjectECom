@@ -25,6 +25,11 @@ class Page extends \App\core\Model {
         $stmt->execute(['profile_id' => $this->profile_id, 'page_title' => $this->page_title, 'page_id' => $this->page_id]);
     }
 
+    public function delete() {
+        $stmt = self::$connection->prepare("DELETE FROM page WHERE page_id=:page_id");
+        $stmt->execute(['page_id' => $this->page_id]);
+    }
+
 }
 
 ?>

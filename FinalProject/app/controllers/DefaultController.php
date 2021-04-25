@@ -35,7 +35,7 @@ class DefaultController extends \App\core\Controller{
 				$_SESSION['username'] = $user->username;
 				$_SESSION['timeout'] = $user->timeout; // timeout is by default the current timestamp-> the day and time the account has been created
 
-				header('location:'.BASE.'/Default/somewhereSecure');
+				header('location:'.BASE.'/Profile/profilePage');
 			}else
 				header('location:'.BASE.'/Default/login?error=Username/password mismatch!');
 		}else{
