@@ -20,7 +20,7 @@ class Profile extends \App\core\Model {
     }
 
     public function findUserId($user_id) {
-        $stmt = self::$connection->prepare("SELECT * FROM user WHERE user_id = :user_id");
+        $stmt = self::$connection->prepare("SELECT * FROM profile WHERE user_id = :user_id");
         $stmt->execute(['user_id' => $user_id]);
         $stmt->setFetchMode(\PDO::FETCH_GROUP | \PDO::FETCH_CLASS, "App\\models\\Profile");
         return $stmt->fetch();
