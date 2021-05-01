@@ -4,8 +4,13 @@ namespace App\controllers;
 
 class PageController extends \App\core\Controller {
 
-    function index() {
+    function index($profile_id) {
+        $profile = new \App\models\Profile();
+        $profile = $profile->find($profile_id);
 
+        $page = new \App\models\Page();
+        $page = $page->getAll($profile->profile_id);
+        $this->view('Page/listPages', ['page' => $page]);
     }
 
     function createPage() {
@@ -30,7 +35,7 @@ class PageController extends \App\core\Controller {
             $page->page_title = $_POST["page_title"];
             $page->page_text = $_POST["page_text"];
             $page->page_id = $page_id;
-            
+
             $page->update();
         } else {
             $page = new \App\models\Page();

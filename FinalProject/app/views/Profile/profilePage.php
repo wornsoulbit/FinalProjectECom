@@ -4,7 +4,8 @@
     </head>
 
     <body>
-        <a href="<?= BASE ?>/Profile/edit/<?= $data['profile']->profile_id?>"> Modify your profile</a>
+        <a href="<?= BASE ?>/Profile/edit/<?= $data['profile']->profile_id?>"> Modify your profile</a> <br />
+        <a href="<?= BASE ?>/Page/index/<?= $data['profile']->profile_id?>"> Page management</a> <br />
         <a href="<?= BASE ?>/Default/logout/<?= $data['profile']->profile_id?>"> Logout</a>
         <br />
 

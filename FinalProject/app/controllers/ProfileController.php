@@ -20,8 +20,9 @@ class ProfileController extends \App\core\Controller {
             $profile->user_id = $user_id;
             $profile->first_name = $_POST["first_name"];
             $profile->last_name = $_POST["last_name"];
-
+            
             $profile->update();
+            header("location:" . BASE . "/Profile/index/$profile->profile_id");
         } else {
             $profile = new \App\models\Profile();
             $profile = $profile->find($profile_id);
