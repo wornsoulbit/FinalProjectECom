@@ -10,11 +10,6 @@
         <a href="<?= BASE ?>/Comment/add/<?= $data['page']->page_id?>"> Write comment</a>
         <br>
 
-        <?php
-            $data['page']->page_title;
-            $data['page']->page_text;
-        ?>
-
         <label>Comment section: </label>
         <!--list of comments for this page -->
         <?php 
@@ -22,7 +17,7 @@
             echo "
             <br />
             <tr>
-                <td>$comment->profile_id</td>
+                <td>$comment->profile_id:</td>
                 <td>$comment->comment_text</td>
             </tr>";
         }

@@ -17,10 +17,10 @@ class PageController extends \App\core\Controller {
         $getAllComments = new \App\models\Comment();
         $getAllComments = $getAllComments->getAll($page_id); 
 
-        $pageData = new \App\models\Page();
-        $pageData = $pageData->find($page_id);
+        $page = new \App\models\Page();
+        $page = $page->find($page_id);
 
-        $this->view('Page/pagePage', ['comments' => $getAllComments, 'page' => $pageData]);
+        $this->view('Page/pagePage', ['comments' => $getAllComments]);
     }
 
     function createPage() {
