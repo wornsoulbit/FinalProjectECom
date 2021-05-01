@@ -28,7 +28,7 @@ class Page extends \App\core\Model {
     }
 
     public function update() {
-        $stmt = self::$connection->prepare("UPDATE page SET profile_id=:profile_id, page_title=:page_title, page_text WHERE page_id=:page_id");
+        $stmt = self::$connection->prepare("UPDATE page SET profile_id=:profile_id, page_title=:page_title, page_text=:page_text WHERE page_id=:page_id");
         $stmt->execute(['profile_id' => $this->profile_id, 'page_title' => $this->page_title, 'page_text' => $this->page_text, 'page_id' => $this->page_id]);
     }
 
