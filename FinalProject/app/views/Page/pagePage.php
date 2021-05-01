@@ -21,6 +21,10 @@
 
         <label>Comment section: </label>
         <!--list of comments for this page -->
-
+        <?php 
+        foreach ($data['comments'] as $comment) {
+            echo "";
+        }
+        ?>
     </body>
 </html>

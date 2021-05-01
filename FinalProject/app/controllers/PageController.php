@@ -4,8 +4,11 @@ namespace App\controllers;
 
 class PageController extends \App\core\Controller {
 
-    function index() {
+    function index($page_id) {
+        $getAllComments = new \App\models\Comment();
+        $getAllComments = $getAllComments->getAll($page_id);
 
+        $this->view('Page/pagePage', ['comments' => $getAllComments]);
     }
 
     function createPage() {

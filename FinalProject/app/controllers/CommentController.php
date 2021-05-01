@@ -21,7 +21,6 @@ class CommentController extends \App\core\Controller {
         }
     }
 
-
     function delete($comment_id) {
         $comment = new \App\models\Comment();
         $comment = $comment->find($comment_id);        
