@@ -44,11 +44,13 @@ class PageController extends \App\core\Controller {
             $page->page_id = $page_id;
 
             $page->update();
+            header("location:" . BASE . "/Page/index/$page->profile_id");
+        
         } else {
             $page = new \App\models\Page();
             $page = $page->find($page_id);
 
-            $this->view('Page/editPage', $page);
+            $this->view('Page/editPage', ['page' => $page]);
         }
     }
 
