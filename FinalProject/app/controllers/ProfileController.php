@@ -5,7 +5,7 @@ namespace App\controllers;
 class ProfileController extends \App\core\Controller {
     
     function index() {
-
+        //profilePage view
     }
 
     function edit($profile_id) {
@@ -35,7 +35,8 @@ class ProfileController extends \App\core\Controller {
             $profile->first_name = $_POST['first_name'];
             $profile->last_name = $_POST['last_name'];
             $profile->insert();
-            header("location:" . BASE . "Profile/index/$profile->profile_id");
+            header('location:'.BASE.'/Default/login');
+            //header("location:" . BASE . "Profile/index/$profile->profile_id");
         } else {
             $profile = new \App\models\Profile();
             $profile = $profile->findUserId($_SESSION['user_id']);

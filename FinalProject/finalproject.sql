@@ -143,6 +143,7 @@ ALTER TABLE `page`
 --
 ALTER TABLE `profile`
   ADD PRIMARY KEY (`profile_id`),
+  ADD UNIQUE KEY `first_name` (`first_name`),
   ADD KEY `user_id_to_user_id` (`user_id`);
 
 --
