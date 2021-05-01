@@ -13,6 +13,13 @@ class PageController extends \App\core\Controller {
         $this->view('Page/listPages', ['page' => $page]);
     }
 
+    function viewPage($page_id) {
+        $getAllComments = new \App\models\Comment();
+        $getAllComments = $getAllComments->getAll($page_id); 
+
+        $this->view('Page/pagePage', ['comments' => $getAllComments]);
+    }
+
     function createPage() {
         if (isset($_POST["action"])) {
             $page = new \App\models\Page();

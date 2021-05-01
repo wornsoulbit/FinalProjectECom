@@ -23,7 +23,11 @@
         <!--list of comments for this page -->
         <?php 
         foreach ($data['comments'] as $comment) {
-            echo "";
+            echo "
+            <tr>
+                <td>$comment->profile_id</td>
+                <td>$comment->comment_text</td>
+            </tr>;
         }
         ?>
     </body>
