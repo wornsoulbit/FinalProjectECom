@@ -12,11 +12,11 @@
 
         <?php
             echo "<tr>" .
-                "<td>" . $data['page']->page_title . "</td>" .
-                "<td>" . $data['page']->page_text . "</td>" . 
+                "<td>" . $data['page']->page_title . "</td>" . "</br>" .
+                "<td>" . $data['page']->page_text . "</td>" .  "</td>" .    
                 "</tr>";
         ?>
-
+        <br>
         <label>Comment section: </label>
         <!--list of comments for this page -->
         <?php 
