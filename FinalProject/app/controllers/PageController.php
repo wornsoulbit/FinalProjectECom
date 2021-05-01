@@ -20,7 +20,7 @@ class PageController extends \App\core\Controller {
         $page = new \App\models\Page();
         $page = $page->find($page_id);
 
-        $this->view('Page/pagePage', ['comments' => $getAllComments]);
+        $this->view('Page/pagePage', ['comments' => $getAllComments, 'page' => $page]);
     }
 
     function createPage() {

@@ -25,7 +25,6 @@
             echo "
             <br />
             <tr>
-                <td>$comment->profile_id:</td>
                 <td>$comment->comment_text</td>
             </tr>";
         }
