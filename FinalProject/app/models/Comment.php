@@ -34,7 +34,7 @@ class Comment extends \App\core\Model {
         $stmt = self::$connection->prepare("SELECT * FROM comment WHERE page_id = :page_id");
         $stmt->execute(['page_id' => $page_id]);
         $stmt->setFetchMode(\PDO::FETCH_GROUP | \PDO::FETCH_CLASS, "App\\models\\Comment");
-        return $stmt->fetch();
+        return $stmt->fetchAll();
     }
 
 }
