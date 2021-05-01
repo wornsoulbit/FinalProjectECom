@@ -15,7 +15,7 @@ class CommentController extends \App\core\Controller {
             $comment->page_id = $page_id;
             $comment->comment_text = $_POST['comment_text'];
             $comment->insert();
-            header("location:" . BASE . "Comment/index");
+            header("location:" . BASE . "Page/viewPage/$page_id");
         } else {
             $this->view('Comment/createComment');
         }

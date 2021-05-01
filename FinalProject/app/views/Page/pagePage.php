@@ -11,11 +11,8 @@
         <br>
 
         <?php
-        echo 
-        "<tr>
-            <td></td>
-            <td></td>
-        </tr>";
+            $data['page']->page_title;
+            $data['page']->page_text;
         ?>
 
         <label>Comment section: </label>
@@ -23,6 +20,7 @@
         <?php 
         foreach ($data['comments'] as $comment) {
             echo "
+            <br />
             <tr>
                 <td>$comment->profile_id</td>
                 <td>$comment->comment_text</td>
