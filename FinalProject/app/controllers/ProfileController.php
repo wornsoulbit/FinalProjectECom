@@ -4,8 +4,10 @@ namespace App\controllers;
 
 class ProfileController extends \App\core\Controller {
     
-    function index() {
-        //profilePage view
+    function index($profile_id) {
+        $profile = new \App\models\Profile();
+        $profile = $profile->find($profile_id);
+        $this->view('Profile/profilePage', ['profile' => $profile]);
     }
 
     function edit($profile_id) {
