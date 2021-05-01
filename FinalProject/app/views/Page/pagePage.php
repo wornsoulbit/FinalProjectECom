@@ -11,8 +11,10 @@
         <br>
 
         <?php
-            $data['page']->page_title;
-            $data['page']->page_text;
+            echo "<tr>" .
+                "<td>" . $data['page']->page_title . "</td>" .
+                "<td>" . $data['page']->page_text . "</td>" . 
+                "</tr>";
         ?>
 
         <label>Comment section: </label>
@@ -22,7 +24,6 @@
             echo "
             <br />
             <tr>
-                <td>$comment->profile_id</td>
                 <td>$comment->comment_text</td>
             </tr>";
         }
