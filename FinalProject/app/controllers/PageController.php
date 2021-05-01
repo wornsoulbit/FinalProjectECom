@@ -44,6 +44,7 @@ class PageController extends \App\core\Controller {
         if (isset($_POST["action"])) {
             $page->page_title = $_POST["page_title"];
             $page->page_text = $_POST["page_text"];
+            $page->profile_id = $_SESSION["profile_id"];
             $page->page_id = $page_id;
 
             $page->update();

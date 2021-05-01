@@ -11,7 +11,11 @@
         <br>
 
         <?php
-        echo "";
+        echo 
+        "<tr>
+            <td></td>
+            <td></td>
+        </tr>";
         ?>
 
         <label>Comment section: </label>
