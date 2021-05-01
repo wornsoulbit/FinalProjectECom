@@ -4,8 +4,6 @@
     </head>
 
     <body>
-        <a href="<?= BASE ?>/Page/edit/<?= $data['page']->page_id?>"> Modify your page</a> <br>
-        <a href="<?= BASE ?>/Page/delete/<?= $data['page']->page_id?>"> Delete your page</a>
         <br>
         <a href="<?= BASE ?>/Star/add/<?= $data['page']->page_id?>"> Star page</a>
         <br>
