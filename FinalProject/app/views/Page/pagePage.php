@@ -13,10 +13,7 @@
         <br>
 
         <?php
-        echo "<tr>
-        		<td>$data['page']->page_title</td> 
-        		<td>$data['page']->page_text</td>
-        	</tr>";
+        echo "";
         ?>
 
         <label>Comment section: </label>
@@ -27,7 +24,7 @@
             <tr>
                 <td>$comment->profile_id</td>
                 <td>$comment->comment_text</td>
-            </tr>;
+            </tr>";
         }
         ?>
     </body>
