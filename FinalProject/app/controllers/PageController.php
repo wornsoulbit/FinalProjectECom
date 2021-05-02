@@ -20,7 +20,10 @@ class PageController extends \App\core\Controller {
         $page = new \App\models\Page();
         $page = $page->find($page_id);
 
-        $this->view('Page/pagePage', ['comments' => $getAllComments, 'page' => $page]);
+        $star = new \App\models\Star();
+        $star = $star->find($_SESSION['profile_id'], $page_id);
+
+        $this->view('Page/pagePage', ['comments' => $getAllComments, 'page' => $page, 'star' => $star]);
     }
 
     function createPage() {
