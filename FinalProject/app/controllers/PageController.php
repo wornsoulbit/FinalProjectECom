@@ -45,6 +45,8 @@ class PageController extends \App\core\Controller {
         $page = $page->find($page_id);
 
         if (isset($_POST["action"])) {
+            $page = new \App\models\Page();
+
             $page->page_title = $_POST["page_title"];
             $page->page_text = $_POST["page_text"];
             $page->profile_id = $_SESSION["profile_id"];
