@@ -23,8 +23,9 @@ class CommentController extends \App\core\Controller {
 
     function delete($comment_id) {
         $comment = new \App\models\Comment();
-        $comment = $comment->find($comment_id);        
+        $comment = $comment->find($comment_id);
         $comment->delete();
+        header("location:" . BASE . "/Page/viewPage/$comment->page_id");
     }
 
 }

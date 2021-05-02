@@ -1,0 +1,22 @@
+#page {
+    text-align: center;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-top: 50px;
+    padding-bottom: 50px;
+    border-radius: 25px;
+    border: solid;
+    border-width: 2px;
+}
+
+#pageContents {
+    text-align: left;
+    margin-left: 300px;
+    margin-right: 300px;
+}
+
+#navBar {
+    text-align: left;
+    margin-left: 302px;
+    margin-right: 305px;
+}
