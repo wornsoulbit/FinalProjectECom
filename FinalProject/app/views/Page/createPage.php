@@ -13,5 +13,6 @@
 
             <input type="submit" name="action" value="Create Page" />
         </form>
+        <a href="<?= BASE ?>/Page/index/<?= $_SESSION['profile_id']?>">Return to pages list</a> <br />
     </body>
 </html>
