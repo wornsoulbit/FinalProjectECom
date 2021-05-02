@@ -8,7 +8,8 @@
 
         <form method="post" action="">
             <label>Page title: <input type="text" name="page_title"> </label> <br/>
-            <label>Page text: <textarea name="page_text"></textarea> </label> <br/>
+            <label>Page text: </label> <br />
+            <textarea name="page_text" rows="10" cols="50"></textarea> <br/>
 
             <input type="submit" name="action" value="Create Page" />
         </form>
