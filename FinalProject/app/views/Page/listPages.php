@@ -7,7 +7,9 @@
 	<div id="page">
 		<div id="navBar">
 			<a href="<?=BASE?>/Page/createPage">Add a new page</a>
+			<a href="<?=BASE?>/Profile/index/<?= $data['profile']->profile_id?>">Go back</a>
 			<a href="<?=BASE?>/Default/logout">Logout</a>
+
 		</div>
 
 		<div id="pageList">

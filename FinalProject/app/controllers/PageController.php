@@ -10,7 +10,7 @@ class PageController extends \App\core\Controller {
 
         $page = new \App\models\Page();
         $page = $page->getAll($profile->profile_id);
-        $this->view('Page/listPages', ['page' => $page]);
+        $this->view('Page/listPages', ['page' => $page, 'profile' => $profile]);
     }
 
     function viewPage($page_id) {
