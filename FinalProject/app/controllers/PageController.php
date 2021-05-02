@@ -66,9 +66,15 @@ class PageController extends \App\core\Controller {
         $star->page_id = $page_id;
         $star->deleteAll();
 
+        $comments = new \App\models\Comment();
+        $comments->page_id = $page_id;
+        $comments->deleteAllPageComments();
+
         $page = new \App\models\Page();
-        $page = $page->find($page_id);        
+        $page->page_id = $page_id;
         $page->delete();
+
+        header("location:" . BASE . "/Page/index/" . $_SESSION['profile_id'] . "");
     }
 
 }

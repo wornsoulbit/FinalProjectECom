@@ -30,6 +30,11 @@ class Comment extends \App\core\Model {
         $stmt->execute(['comment_id' => $this->comment_id]);
     }
 
+    public function deleteAllPageComments() {
+        $stmt = self::$connection->prepare("DELETE FROM comment WHERE page_id=:page_id");
+        $stmt->execute(['page_id' => $this->page_id]);
+    }
+
     public function getAll($page_id) {
         $stmt = self::$connection->prepare("SELECT * FROM comment WHERE page_id = :page_id");
         $stmt->execute(['page_id' => $page_id]);

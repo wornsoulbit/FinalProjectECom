@@ -14,8 +14,8 @@
             }
         ?>
         <br />
-        <a href="<?= BASE ?>/Comment/add/<?= $data['page']->page_id?>"> Write comment</a>
-        <br />
+        <a href="<?= BASE ?>/Page/index/<?= $_SESSION['profile_id']?>"> Return to page list</a> <br />
+        <a href="<?= BASE ?>/Comment/add/<?= $data['page']->page_id?>"> Write comment</a> <br />
 
         <?php
             echo "Page Title: " . $data['page']->page_title . "<br />" . 
