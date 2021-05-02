@@ -5,14 +5,14 @@
     </head>
 
     <body>
+
         <?php 
             if ($data['star'] == false) {
-                echo "<a href=\"" . BASE . "/Star/add/" . $data['page']->page_id . "\"><i class=\"far fa-star\"</i></a>";
+                echo "<a href=\"" . BASE . "/Star/add/" . $data['page']->page_id . "\"><i class=\"far fa-star\"></i></a>";
             } else {
-                echo "<a href=\"" . BASE . "/Star/delete/" . $data['page']->page_id . "\"><i class=\"fas fa-star\"</i></a>";
+                echo "<a href=\"" . BASE . "/Star/delete/" . $data['page']->page_id . "\"><i class=\"fas fa-star\"></i></a>";
             }
         ?>
-
         <br />
         <a href="<?= BASE ?>/Comment/add/<?= $data['page']->page_id?>"> Write comment</a>
         <br />
