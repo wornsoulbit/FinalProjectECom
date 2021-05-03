@@ -12,5 +12,7 @@
 
             <input type="submit" name="action" value="Submit changes" />
         </form>
+
+        <a href="<?= BASE ?>/Profile/index/<?= $_SESSION['profile_id']?>"> Cancel</a> 
     </body>
 </html>

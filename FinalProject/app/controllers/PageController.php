@@ -35,7 +35,7 @@ class PageController extends \App\core\Controller {
             $page->page_title = $_POST['page_title'];
             $page->page_text = $_POST['page_text'];
             $page->insert();
-            header("location:" . BASE . "/Profile/index/");
+            header("location:" . BASE . "/Page/index/$page->profile_id");
         } else {
             $page = new \App\models\Page();
             $this->view('Page/createPage', $page);
@@ -80,7 +80,7 @@ class PageController extends \App\core\Controller {
         $page->page_id = $page_id;
         $page->delete();
 
-        header("location:" . BASE . "/Profile/index/");
+        header("location:" . BASE . "/Page/index/" . $_SESSION['profile_id'] . "");
     }
 
 }
