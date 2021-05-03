@@ -4,12 +4,17 @@ namespace App\controllers;
 
 class ProfileController extends \App\core\Controller {
     
-    function index($profile_id) {
+    #[\App\core\LoginFilter]
+    function index() {
         $profile = new \App\models\Profile();
-        $profile = $profile->find($profile_id);
-        $this->view('Profile/profilePage', ['profile' => $profile]);
+        $profile = $profile->find($_SESSION['profile_id']);
+
+        $page = new \App\models\Page();
+        $page = $page->getAll($profile->profile_id);
+        $this->view('Profile/profilePage', ['profile' => $profile, 'page' => $page]);
     }
 
+    #[\App\core\LoginFilter]
     function edit($profile_id) {
         $profile = new \App\models\Profile();
         $profile = $profile->find($profile_id);
@@ -31,6 +36,7 @@ class ProfileController extends \App\core\Controller {
         }
     }
 
+    #[\App\core\LoginFilter]
     function createProfile() {
         if (isset($_POST["action"])) {
             $profile = new \App\models\Profile();
@@ -53,7 +59,12 @@ class ProfileController extends \App\core\Controller {
             $profile = $profile->search($_POST["searchProfile"]);
             $this->view('Profile/listProfile', ['profiles' => $profile]);
         }else{
-            $profile = $profile->find($_SESSION['profile_id']);
+            if ($_SESSION['profile_id'] != null) {
+                $profile = $profile->find($_SESSION['profile_id']);
+            } else {
+                $profile->profile_id = null;
+            }
+            
             $this->view('Profile/searchProfile', ['profile' => $profile]);
         }
     }

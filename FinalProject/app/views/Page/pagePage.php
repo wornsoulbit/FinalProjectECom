@@ -9,10 +9,12 @@
         <div id="page">
             <div id="navBar">
                 <?php 
-                    if ($data['star'] == false) {
-                        echo "<a href=\"" . BASE . "/Star/add/" . $data['page']->page_id . "\"><i class=\"far fa-star\"></i></a>";
-                    } else {
-                        echo "<a href=\"" . BASE . "/Star/delete/" . $data['page']->page_id . "\"><i class=\"fas fa-star\"></i></a>";
+                    if ($data['star'] != null) {
+                        if ($data['star'] == false) {
+                            echo "<a href=\"" . BASE . "/Star/add/" . $data['page']->page_id . "\"><i class=\"far fa-star\"></i></a>";
+                        } else {
+                            echo "<a href=\"" . BASE . "/Star/delete/" . $data['page']->page_id . "\"><i class=\"fas fa-star\"></i></a>";
+                        }
                     }
 
 
@@ -23,9 +25,9 @@
                     }
 
                 ?>
+
        
                 <a href="<?= BASE ?>/Comment/add/<?= $data['page']->page_id?>"> Write comment</a> <br /> <br />
-
 
                 <a href="<?=BASE?>/Default/logout">Logout</a>
 
@@ -39,11 +41,10 @@
             </div>
 
             <div id="comments">
-                <br />
-                <label>Comment section: </label> <br />
+                <h4>Comment section:</h4>
                 <!--list of comments for this page -->
-                <br />
-
+                <a href="<?= BASE ?>/Comment/add/<?= $data['page']->page_id?>" id="addComment"> Add comment</a> <br /> <br />
+                    
                 <?php 
                     if($_SESSION['profile_id'] !== $data['page']->profile_id){
                         foreach ($data['comments'] as $comment) {
