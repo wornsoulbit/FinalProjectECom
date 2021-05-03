@@ -12,7 +12,7 @@ class PageController extends \App\core\Controller {
         $page = $page->getAll($profile->profile_id);
         $this->view('Page/listPages', ['page' => $page, 'profile' => $profile]);
     }
-
+    
     function viewPage($page_id) {
         $getAllComments = new \App\models\Comment();
         $getAllComments = $getAllComments->getAll($page_id); 
@@ -39,7 +39,8 @@ class PageController extends \App\core\Controller {
 
         $this->view('Page/otherUserPage', ['comments' => $getAllComments, 'page' => $page, 'star' => $star]);
     }
-
+    
+    #[\App\core\LoginFilter]
     function createPage() {
         if (isset($_POST["action"])) {
             $page = new \App\models\Page();
@@ -47,13 +48,14 @@ class PageController extends \App\core\Controller {
             $page->page_title = $_POST['page_title'];
             $page->page_text = $_POST['page_text'];
             $page->insert();
-            header("location:" . BASE . "/Page/index/$page->profile_id");
+            header("location:" . BASE . "/Profile/index/");
         } else {
             $page = new \App\models\Page();
             $this->view('Page/createPage', $page);
         }
     }
 
+    #[\App\core\LoginFilter]
     function edit($page_id) {
         $page = new \App\models\Page();
         $page = $page->find($page_id);
@@ -77,6 +79,7 @@ class PageController extends \App\core\Controller {
         }
     }
 
+    #[\App\core\LoginFilter]
     function delete($page_id) {
         $star = new \App\models\Star();
         $star->page_id = $page_id;
@@ -90,7 +93,7 @@ class PageController extends \App\core\Controller {
         $page->page_id = $page_id;
         $page->delete();
 
-        header("location:" . BASE . "/Page/index/" . $_SESSION['profile_id'] . "");
+        header("location:" . BASE . "/Profile/index/");
     }
 
 }

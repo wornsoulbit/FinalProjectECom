@@ -8,7 +8,10 @@ class ProfileController extends \App\core\Controller {
     function index() {
         $profile = new \App\models\Profile();
         $profile = $profile->find($_SESSION['profile_id']);
-        $this->view('Profile/profilePage', ['profile' => $profile]);
+
+        $page = new \App\models\Page();
+        $page = $page->getAll($profile->profile_id);
+        $this->view('Profile/profilePage', ['profile' => $profile, 'page' => $page]);
     }
 
     #[\App\core\LoginFilter]

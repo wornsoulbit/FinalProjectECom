@@ -22,6 +22,11 @@
     border-radius: 25px;
 }
 
+#addComment {
+    text-align: right;
+    margin-left: 200px;
+}
+
 #pageContents {
     border: solid;
     border-width: 2px;
