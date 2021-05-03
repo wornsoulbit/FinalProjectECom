@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>View Page</title>
@@ -9,7 +10,7 @@
         <div id="page">
             <div id="navBar">
                 <?php 
-                    if ($data['star'] != null) {
+                    if ($_SESSION['profile_id'] != null) {
                         if ($data['star'] == false) {
                             echo "<a href=\"" . BASE . "/Star/add/" . $data['page']->page_id . "\"><i class=\"far fa-star\"></i></a>";
                         } else {
@@ -29,13 +30,17 @@
             </div>
 
             <div id="comments">
+                <br />
                 <h4>Comment section:</h4>
                 <!--list of comments for this page -->
                 <a href="<?= BASE ?>/Comment/add/<?= $data['page']->page_id?>" id="addComment"> Add comment</a> <br /> <br />
                     
                 <?php 
                     foreach ($data['comments'] as $comment) {
-                        echo "$comment->comment_text <a href=\"" . BASE . "/Comment/delete/" . $comment->comment_id . "\">delete</a> <br />";
+                        echo "$comment->comment_text";
+                        if ($_SESSION['profile_id'] == $comment->profile_id) {
+                            echo "<a href=\"" . BASE . "/Comment/delete/" . $comment->comment_id . "\">delete</a>";
+                        }
                     }
                 ?>
             </div>

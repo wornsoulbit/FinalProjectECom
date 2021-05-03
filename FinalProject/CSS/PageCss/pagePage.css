@@ -2,6 +2,7 @@
     text-align: right;
     margin-right: 200px;
     margin-top: 50px;
+    padding-bottom: 10px;
 }
 
 #page {
@@ -22,15 +23,14 @@
     border-radius: 25px;
 }
 
-#addComment {
-    text-align: right;
-    margin-left: 200px;
-}
-
 #pageContents {
     border: solid;
     border-width: 2px;
     border-radius: 25px;
     margin-left: 200px;
     margin-right: 200px;
+}
+
+#deleteComment {
+    display: inline;
 }

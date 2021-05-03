@@ -9,10 +9,12 @@
         <div id="page">
             <div id="navBar">
                 <?php 
-                    if ($data['star'] == false) {
-                        echo "<a href=\"" . BASE . "/Star/add/" . $data['page']->page_id . "\"><i class=\"far fa-star\"></i></a>";
-                    } else {
-                        echo "<a href=\"" . BASE . "/Star/delete/" . $data['page']->page_id . "\"><i class=\"fas fa-star\"></i></a>";
+                    if ($_SESSION['profile_id'] != null) {
+                        if ($data['star'] == false) {
+                            echo "<a href=\"" . BASE . "/Star/add/" . $data['page']->page_id . "\"><i class=\"far fa-star\"></i></a>";
+                        } else {
+                            echo "<a href=\"" . BASE . "/Star/delete/" . $data['page']->page_id . "\"><i class=\"fas fa-star\"></i></a>";
+                        }
                     }
                 ?>
                 <a href="<?= BASE ?>/Comment/add/<?= $data['page']->page_id?>"> Write comment</a> <br /> <br />
@@ -34,7 +36,10 @@
 
                 <?php 
                     foreach ($data['comments'] as $comment) {
-                        echo "$comment->comment_text <br />";
+                        echo "$comment->comment_text";
+                        if ($_SESSION['profile_id'] == $comment->profile_id) {
+                            echo "<a href=\"" . BASE . "/Comment/delete/" . $comment->comment_id . "\">delete</a>";
+                        }
                     }
                 ?>
             </div>
