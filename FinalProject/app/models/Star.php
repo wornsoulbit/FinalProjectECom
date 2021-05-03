@@ -22,6 +22,20 @@ class Star extends \App\core\Model {
         return $stmt->fetch();
     }
 
+    public function findAllStar($profile_id) {
+        $stmt = self::$connection->prepare("SELECT * FROM star_page WHERE profile_id=:profile_id");
+        $stmt->execute(['profile_id' => $profile_id]);
+        $stmt->setFetchMode(\PDO::FETCH_GROUP | \PDO::FETCH_CLASS, "App\\models\\star");
+        return $stmt->fetchAll();
+    }
+
+    public function getPageName($page_id) {
+        $stmt = self::$connection->prepare("SELECT * FROM page WHERE page_id=:page_id");
+        $stmt->execute(['page_id' => $page_id]);
+        $stmt->setFetchMode(\PDO::FETCH_GROUP | \PDO::FETCH_CLASS, "App\\models\\star");
+        return $stmt->fetch();
+    }
+
     public function insert() {
         $stmt = self::$connection->prepare("INSERT INTO star_page(profile_id, page_id) VALUES (:profile_id, :page_id)");
         $stmt->execute(['profile_id' => $this->profile_id, 'page_id' => $this->page_id]);

@@ -11,7 +11,17 @@ class ProfileController extends \App\core\Controller {
 
         $page = new \App\models\Page();
         $page = $page->getAll($profile->profile_id);
-        $this->view('Profile/profilePage', ['profile' => $profile, 'page' => $page]);
+
+        $star = new \App\models\Star();
+        $star = $star->findAllStar($_SESSION['profile_id']);
+
+        $pageName = new \App\models\Star();
+        $pageNames[] = null;
+        for ($i = 0; $i < count($star); $i++) {
+            array_push($pageNames, $pageName->getPageName($star[$i]->page_id));
+        }
+
+        $this->view('Profile/profilePage', ['profile' => $profile, 'page' => $page, 'star' => $star, 'pageNames' => $pageNames]);
     }
 
     #[\App\core\LoginFilter]
