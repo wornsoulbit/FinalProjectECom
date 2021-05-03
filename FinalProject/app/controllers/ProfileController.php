@@ -61,7 +61,10 @@ class ProfileController extends \App\core\Controller {
     function viewProfile($profile_id){
         $profile = new \App\models\Profile();
         $profile = $profile->find($profile_id);
-        $this->view('Profile/viewProfile', ['profile' => $profile]);
+
+        $page = new \App\models\Page();
+        $page = $page->getAll($profile->profile_id);
+        $this->view('Profile/viewProfile', ['page' => $page, 'profile' => $profile]);
     }
 
 }

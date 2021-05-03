@@ -4,16 +4,19 @@
     </head>
 
     <body>
+
+        <?php
+            echo "<h2>Hello, " . $data['profile']->first_name . " " . $data['profile']->last_name . 
+            " welcome to your profile!</h2><br />";
+        ?>
+        
         <a href="<?= BASE ?>/Profile/edit/<?= $data['profile']->profile_id?>"> Modify your profile</a> <br />
         <a href='<?= BASE ?>/Profile/search'>Search a profile</a> <br>
         <a href="<?= BASE ?>/Page/index/<?= $data['profile']->profile_id?>"> Page management</a> <br />
         <a href="<?= BASE ?>/Default/logout/<?= $data['profile']->profile_id?>"> Logout</a>
         <br />
 
-        <?php
-            echo "<h2>Hello, " . $data['profile']->first_name . " " . $data['profile']->last_name . 
-            " welcome to your profile!</h2><br />";
-        ?>
+        
         <!--
             TODO: Show a list of pages a user has created allowing for that user to quickly access that page.
         -->

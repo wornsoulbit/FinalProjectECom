@@ -3,22 +3,32 @@
 </head>
 <body>
 
-	<table>
-		<tr>
-			<th>First Name</th><th>Last name</th>
-		</tr>
-
-
 	<?php
+            echo "<h2>Hello, welcome to " . $data['profile']->first_name . " " . $data['profile']->last_name . 
+            "'s profile!</h2><br />";
 
-			echo "<tr>" .
-                "<td>" . $data['profile']->first_name . "</td>" . "</br>" .
-                "<td>" . $data['profile']->last_name . "</td>" .  "</td>" .
-                "</tr>";
+    ?>
 
-	?>  
+    <table>
+			<tr>
+				<th>Page title</th>
+				<th>Actions</th>
+			</tr>
+			<?php
+				echo "<h3> List of " . $data['profile']->first_name . "'s pages</h3>";
 
+				foreach($data['page'] as $page){
+					echo "<tr>
+							<td>$page->page_title</td>
+							<td>
+								<a href='".BASE."/Page/viewOtherUserPage/$page->page_id'>view this page</a>
+							</td>
+						</tr>";
+				}	
+			?>
 	</table>
+
+    <br>
 	<a href="<?=BASE?>/Profile/search">search another profile</a>
 </body>
 </html>
