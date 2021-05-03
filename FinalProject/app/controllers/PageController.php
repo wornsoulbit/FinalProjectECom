@@ -26,19 +26,6 @@ class PageController extends \App\core\Controller {
         $this->view('Page/pagePage', ['comments' => $getAllComments, 'page' => $page, 'star' => $star]);
     }
 
-    //view the searched user's pages
-    function viewOtherUserPage($page_id) {
-        $getAllComments = new \App\models\Comment();
-        $getAllComments = $getAllComments->getAll($page_id); 
-
-        $page = new \App\models\Page();
-        $page = $page->find($page_id);
-
-        $star = new \App\models\Star();
-        $star = $star->find($_SESSION['profile_id'], $page_id);
-
-        $this->view('Page/otherUserPage', ['comments' => $getAllComments, 'page' => $page, 'star' => $star]);
-    }
     
     #[\App\core\LoginFilter]
     function createPage() {

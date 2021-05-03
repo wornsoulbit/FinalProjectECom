@@ -17,9 +17,21 @@
                             echo "<a href=\"" . BASE . "/Star/delete/" . $data['page']->page_id . "\"><i class=\"fas fa-star\"></i></a>";
                         }
                     }
+
+
+                    if($_SESSION['profile_id'] !== $data['page']->profile_id){
+                        echo "<a href=\"" . BASE . "/Profile/viewProfile/" . $data['page']->profile_id . "\"> Go back </a>";
+                    }else{
+                        echo "<a href='" . BASE . "/Page/index/" . $_SESSSION['profile_id'] . "'> Return to page list </a>";
+                    }
+
                 ?>
-                <a href="<?= BASE ?>/Page/index/<?= $_SESSION['profile_id']?>"> Return to page list</a>
+
+       
+                <a href="<?= BASE ?>/Comment/add/<?= $data['page']->page_id?>"> Write comment</a> <br /> <br />
+
                 <a href="<?=BASE?>/Default/logout">Logout</a>
+
             </div>
 
             <div id="pageContents">
@@ -41,7 +53,7 @@
                         if ($_SESSION['profile_id'] == $comment->profile_id) {
                             echo "<a href=\"" . BASE . "/Comment/delete/" . $comment->comment_id . "\">delete</a>";
                         }
-                    }
+                    }                    
                 ?>
             </div>
         </div>

@@ -21,7 +21,7 @@
 					echo "<tr>
 							<td>$page->page_title</td>
 							<td>
-								<a href='".BASE."/Page/viewOtherUserPage/$page->page_id'>view this page</a>
+								<a href='".BASE."/Page/viewPage/$page->page_id'>view this page</a>
 							</td>
 						</tr>";
 				}	
