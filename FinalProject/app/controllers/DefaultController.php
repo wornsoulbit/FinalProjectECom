@@ -2,8 +2,14 @@
 namespace App\controllers;
 
 class DefaultController extends \App\core\Controller{
+
 	function index(){
-		$this->view('Default/index');
+		$page = new \App\models\Page();
+		$page = $page->find(9);
+
+		$pages = new \App\models\Page();
+		$pages = $pages->getAllPages();
+		$this->view('Page/defaultPage', ['page' => $page, 'pageList' => $pages]);
 	}
 
 	function register(){

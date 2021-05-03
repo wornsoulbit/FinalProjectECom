@@ -15,7 +15,12 @@ class CommentController extends \App\core\Controller {
             $comment->page_id = $page_id;
             $comment->comment_text = $_POST['comment_text'];
             $comment->insert();
-            header("location:" . BASE . "/Page/viewPage/$page_id");
+            
+            if ($comment->profile_id == $_SESSION['profile_id']) {
+                header("location:" . BASE . "/Page/viewPage/$comment->page_id");
+            } else {
+                header("location:" . BASE . "/Page/viewOtherUserPage/$comment->page_id");
+            }
         } else {
             $page = new \App\models\Page();
             $page->page_id = $page_id;
@@ -28,6 +33,12 @@ class CommentController extends \App\core\Controller {
         $comment = $comment->find($comment_id);
         $comment->delete();
         header("location:" . BASE . "/Page/viewPage/$comment->page_id");
+
+        if ($comment->profile_id == $_SESSION['profile_id']) {
+            header("location:" . BASE . "/Page/viewPage/$comment->page_id");
+        } else {
+            header("location:" . BASE . "/Page/viewOtherUserPage/$comment->page_id");
+        }
     }
 
 }
