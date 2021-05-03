@@ -9,7 +9,13 @@
 
 	</form>
 
-	<a href="<?=BASE?>/Profile/index/<?= $data['profile']->profile_id?>">Cancel</a>
+	<?php
+		if ($data['profile']->profile_id != null) {
+			echo "<a href=\"" . BASE . "/Profile/index/" . $data['profile']->profile_id . "\">cancel</a>";
+		} else {
+			echo "<a href=\"" . BASE . "/Default/index/\">cancel</a>";
+		}
+	?>
 	
 </body>
 </html>
