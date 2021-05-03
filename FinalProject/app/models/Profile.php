@@ -26,6 +26,15 @@ class Profile extends \App\core\Model {
         return $stmt->fetch();
     }
 
+    public function search($searchProfile){
+        $searchTerm = "%$searchProfile%";
+        $stmt = self::$connection->prepare("SELECT * FROM profile WHERE 
+            concat(first_name, ' ', last_name) LIKE :term");
+        $stmt->execute(['term'=>$searchTerm]);
+        $stmt->setFetchMode(\PDO::FETCH_GROUP|\PDO::FETCH_CLASS, "App\\models\\Profile");
+        return $stmt->fetchAll();
+    }
+
     public function insert() {
         $stmt = self::$connection->prepare("INSERT INTO profile(user_id, first_name, last_name) VALUES (:user_id, :first_name, :last_name)");
         $stmt->execute(['user_id' => $this->user_id, 'first_name' => $this->first_name, 'last_name' => $this->last_name]);

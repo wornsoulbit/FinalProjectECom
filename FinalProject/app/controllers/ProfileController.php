@@ -47,6 +47,23 @@ class ProfileController extends \App\core\Controller {
         }
     }
 
+    function search(){
+        $profile = new \App\models\Profile();
+        if(isset($_POST["action"])){
+            $profile = $profile->search($_POST["searchProfile"]);
+            $this->view('Profile/listProfile', ['profiles' => $profile]);
+        }else{
+            $profile = $profile->find($_SESSION['profile_id']);
+            $this->view('Profile/searchProfile', ['profile' => $profile]);
+        }
+    }
+
+    function viewProfile($profile_id){
+        $profile = new \App\models\Profile();
+        $profile = $profile->find($profile_id);
+        $this->view('Profile/viewProfile', ['profile' => $profile]);
+    }
+
 }
 
 ?>
