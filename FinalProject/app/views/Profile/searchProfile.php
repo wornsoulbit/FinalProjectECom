@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Search a user</title>
-	<link rel="stylesheet" href="<?=BASE?>/CSS/ProfileCss/searchPage.css">
+	<link rel="stylesheet" href="<?=BASE?>/CSS/ProfileCss/searchProfile.css">
 </head>
 <body>
 	<div id="container">
