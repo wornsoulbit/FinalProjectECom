@@ -1,0 +1,23 @@
+#container {
+    text-align: center;
+    margin-top: 50px;
+    margin-left: 200px;
+    margin-right: 200px;
+    padding-bottom: 50px;
+    border: solid;
+    border-width: 2px;
+    border-radius: 25px;
+}
+
+#form {
+    padding-top: 20px;
+}
+
+#searchButton {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#searchField {
+    margin-right: 75px;
+}
