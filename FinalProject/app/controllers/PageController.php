@@ -12,6 +12,19 @@ class PageController extends \App\core\Controller {
         $page = $page->getAll($profile->profile_id);
         $this->view('Page/listPages', ['page' => $page, 'profile' => $profile]);
     }
+
+    function viewSearchPage($page_id){
+        $getAllComments = new \App\models\Comment();
+        $getAllComments = $getAllComments->getAll($page_id); 
+
+        $page = new \App\models\Page();
+        $page = $page->find($page_id);
+
+        $star = new \App\models\Star();
+        $star = $star->find($_SESSION['profile_id'], $page_id);
+
+        $this->view('Page/pageSearchPage', ['comments' => $getAllComments, 'page' => $page, 'star' => $star]);
+    }
     
     function viewPage($page_id) {
         $getAllComments = new \App\models\Comment();
@@ -26,13 +39,13 @@ class PageController extends \App\core\Controller {
         $this->view('Page/pagePage', ['comments' => $getAllComments, 'page' => $page, 'star' => $star]);
     }
 
-    function search(){
+    function searchPage(){
         $page = new \App\models\Page();
         if(isset($_POST["action"])){
             $page = $page->search($_POST["searchPage"]);
             $this->view('Page/listSearchPages', ['pages' => $page]);
         }else{
-            $this->view('Profile/searchPage');
+            $this->view('Page/searchPage');
         }
     }
 

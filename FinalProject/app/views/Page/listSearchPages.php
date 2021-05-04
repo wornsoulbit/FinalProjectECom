@@ -16,7 +16,7 @@
 			echo "<tr>
 					<td>$page->page_title</td>	
 					<td>
-						<a href='".BASE."/Page/viewPage/$page->page_id'>view this page</a>
+						<a href='".BASE."/Page/viewSearchPage/$page->page_id'>view this page</a>
 					</td>
 				</tr>";
 		}
@@ -24,6 +24,8 @@
 
 	</table>
 
-	<a href="<?=BASE?>/Default/index">Go back</a>
+	<br>
+
+	<a href="<?=BASE?>/Page/searchPage">Go back</a>
 </body>
 </html>

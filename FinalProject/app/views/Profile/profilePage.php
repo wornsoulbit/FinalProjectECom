@@ -11,7 +11,7 @@
                 ?>
             <a href="<?= BASE ?>/Profile/edit/<?= $data['profile']->profile_id?>"> Modify your profile</a> <br />
             <a href='<?= BASE ?>/Profile/search'>Search a profile</a> <br>
-            <a href='<?= BASE ?>/Page/search'>Search a page</a> <br>
+            <a href='<?= BASE ?>/Page/searchPage'>Search a page</a> <br>
             <a href="<?= BASE ?>/Page/index/<?= $data['profile']->profile_id?>"> Page management</a> <br />
             <a href="<?= BASE ?>/Default/logout/<?= $data['profile']->profile_id?>"> Logout</a>
             <br />
