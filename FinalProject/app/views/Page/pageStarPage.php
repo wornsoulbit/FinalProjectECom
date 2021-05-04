@@ -10,6 +10,7 @@
         <div id="page">
             <div id="navBar">
                 <?php 
+
                     if ($_SESSION['profile_id'] != null) {
                         if ($data['star'] == false) {
                             echo "<a href=\"" . BASE . "/Star/add/" . $data['page']->page_id . "\"><i class=\"far fa-star\"></i></a>";
@@ -18,12 +19,12 @@
                         }
                     }
 
-                    if($_SESSION['profile_id'] != $data['page']->profile_id){
+                    if ($_SESSION['profile_id'] != $data['page']->profile_id){
                         echo "<a href=\"" . BASE . "/Profile/index/" . "\"> Go back </a>";
-                    }else{
+                    } else {
                         echo "<a href='" . BASE . "/Page/index/" . $_SESSION['profile_id'] . "'> Return to page list </a>";
                     }
-
+                    
                 ?>
 
                 <br>
