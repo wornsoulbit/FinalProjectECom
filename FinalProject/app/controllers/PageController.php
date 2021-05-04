@@ -26,6 +26,16 @@ class PageController extends \App\core\Controller {
         $this->view('Page/pagePage', ['comments' => $getAllComments, 'page' => $page, 'star' => $star]);
     }
 
+    function search(){
+        $page = new \App\models\Page();
+        if(isset($_POST["action"])){
+            $page = $page->search($_POST["searchPage"]);
+            $this->view('Page/listSearchPages', ['pages' => $page]);
+        }else{
+            $this->view('Profile/searchPage');
+        }
+    }
+
     
     #[\App\core\LoginFilter]
     function createPage() {

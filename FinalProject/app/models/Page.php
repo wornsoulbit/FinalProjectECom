@@ -22,6 +22,15 @@ class Page extends \App\core\Model {
         return $stmt->fetchAll();
     }
 
+    public function search($searchPage){
+        $searchTerm = "%$searchPage%";
+        $stmt = self::$connection->prepare("SELECT * FROM page WHERE 
+            concat(page_title) LIKE :term");
+        $stmt->execute(['term'=>$searchTerm]);
+        $stmt->setFetchMode(\PDO::FETCH_GROUP|\PDO::FETCH_CLASS, "App\\models\\Page");
+        return $stmt->fetchAll();
+    }
+
     public function insert() {
         $stmt = self::$connection->prepare("INSERT INTO page(profile_id, page_title, page_text) VALUES (:profile_id, :page_title, :page_text)");
         $stmt->execute(['profile_id' => $this->profile_id, 'page_title' => $this->page_title, 'page_text' => $this->page_text]);

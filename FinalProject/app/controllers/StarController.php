@@ -14,11 +14,7 @@ class StarController extends \App\core\Controller {
         $page = new \App\models\Page();
         $page = $page->find($page_id);
 
-        if ($page->profile_id == $_SESSION['profile_id']) {
-            header("location:" . BASE . "/Page/viewPage/$page_id");
-        } else {
-            header("location:" . BASE . "/Page/viewOtherUserPage/$page_id");
-        }
+        header("location:" . BASE . "/Page/viewPage/$page_id");
     }
 
     function delete($page_id) {
@@ -30,11 +26,8 @@ class StarController extends \App\core\Controller {
         $page = new \App\models\Page();
         $page = $page->find($page_id);
 
-        if ($page->profile_id == $_SESSION['profile_id']) {
-            header("location:" . BASE . "/Page/viewPage/$page_id");
-        } else {
-            header("location:" . BASE . "/Page/viewOtherUserPage/$page_id");
-        }
+        header("location:" . BASE . "/Page/viewPage/$page_id");
+
     }
 
 }
