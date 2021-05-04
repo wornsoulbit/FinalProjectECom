@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>View Page</title>
@@ -18,7 +19,7 @@
                     }
 
                     if($_SESSION['profile_id'] != $data['page']->profile_id){
-                        echo "<a href=\"" . BASE . "/Page/searchPage/" . "\"> Go back </a>";
+                        echo "<a href=\"" . BASE . "/Profile/index/" . "\"> Go back </a>";
                     }else{
                         echo "<a href='" . BASE . "/Page/index/" . $_SESSION['profile_id'] . "'> Return to page list </a>";
                     }

@@ -25,6 +25,20 @@ class PageController extends \App\core\Controller {
 
         $this->view('Page/pageSearchPage', ['comments' => $getAllComments, 'page' => $page, 'star' => $star]);
     }
+
+    function viewStarPage($page_id){
+        $getAllComments = new \App\models\Comment();
+        $getAllComments = $getAllComments->getAll($page_id); 
+
+        $page = new \App\models\Page();
+        $page = $page->find($page_id);
+
+        $star = new \App\models\Star();
+        $star = $star->find($_SESSION['profile_id'], $page_id);
+
+        $this->view('Page/pageStarPage', ['comments' => $getAllComments, 'page' => $page, 'star' => $star]);
+    }
+    
     
     function viewPage($page_id) {
         $getAllComments = new \App\models\Comment();

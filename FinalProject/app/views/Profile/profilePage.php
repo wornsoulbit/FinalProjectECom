@@ -63,7 +63,7 @@
                         for ($i = 0; $i < count($data['star']); $i++) {
                             echo "<tr>
                                 <td>" . $data['pageNames'][$i + 1]->page_title . "</td>
-                                <td> <a href='".BASE."/Page/viewPage/" . $data['star'][$i]->page_id . "'>view this page</a><br /> </td>
+                                <td> <a href='".BASE."/Page/viewStarPage/" . $data['star'][$i]->page_id . "'>view this page</a><br /> </td>
                                 </tr>";
                         }
                         ?>
