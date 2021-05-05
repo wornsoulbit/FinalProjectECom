@@ -2,14 +2,14 @@
 
 namespace App\controllers;
 
-class AdminController extends \App\core\Controller {
+class ReportController extends \App\core\Controller {
 
     function index() {
 
     }
 
     function getReports() {
-        $reports = new \App\models\Admin();
+        $reports = new \App\models\Report();
         $reports->getReports();
 
         //Need to get the profile name.
@@ -29,14 +29,6 @@ class AdminController extends \App\core\Controller {
         }
 
         $this->view('Report/inboxReport', ['report' => $reports, 'comment' => $commentArr, 'profile' => $profileArr]);
-    }
-
-    function timeout() {
-
-    }
-
-    function removeTimeout() {
-
     }
 
 }

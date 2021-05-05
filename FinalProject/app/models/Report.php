@@ -2,7 +2,7 @@
 
 namespace App\models;
 
-class Admin extends \App\core\Model {
+class Report extends \App\core\Model {
 
     public $report_id;
     public $profile_id;
@@ -11,7 +11,7 @@ class Admin extends \App\core\Model {
 
     public function getReports() {
         $stmt = self::$connection->prepare("SELECT * FROM report");
-        $stmt->setFetchMode(\PDO::FETCH_GROUP|\PDO::FETCH_CLASS, "App\\models\\Admin");
+        $stmt->setFetchMode(\PDO::FETCH_GROUP|\PDO::FETCH_CLASS, "App\\models\\Report");
         return $stmt->fetchAll();
     }
 

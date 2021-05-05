@@ -10,7 +10,7 @@
                 " welcome to your profile!</h2><br />";
                 ?>
 
-            <a href="<?= BASE ?>/Admin/getReports/"> View reports</a> <br />
+            <a href="<?= BASE ?>/Report/getReports/"> View reports</a> <br />
 
             <a href="<?= BASE ?>/Profile/edit/<?= $data['profile']->profile_id?>"> Modify your profile</a> <br />
             <a href='<?= BASE ?>/Profile/search'>Search a profile</a> <br>
