@@ -13,9 +13,9 @@
 
                     if ($_SESSION['profile_id'] != null) {
                         if ($data['star'] == false) {
-                            echo "<a href=\"" . BASE . "/Star/add/" . $data['page']->page_id . "\"><i class=\"far fa-star\"></i></a>";
+                            echo "<a href=\"" . BASE . "/Star/add3/" . $data['page']->page_id . "\"><i class=\"far fa-star\"></i></a>";
                         } else {
-                            echo "<a href=\"" . BASE . "/Star/delete/" . $data['page']->page_id . "\"><i class=\"fas fa-star\"></i></a>";
+                            echo "<a href=\"" . BASE . "/Star/delete3/" . $data['page']->page_id . "\"><i class=\"fas fa-star\"></i></a>";
                         }
                     }
 
@@ -39,13 +39,13 @@
                 <br />
                 <h4>Comment section:</h4>
                 <!--list of comments for this page -->
-                <a href="<?= BASE ?>/Comment/add/<?= $data['page']->page_id?>" id="addComment"> Add comment</a> <br /> <br />
+                <a href="<?= BASE ?>/Comment/add3/<?= $data['page']->page_id?>" id="addComment"> Add comment</a> <br /> <br />
                     
                 <?php 
                     foreach ($data['comments'] as $comment) {
                         echo "$comment->comment_text";
                         if ($_SESSION['profile_id'] == $comment->profile_id) {
-                            echo "<a href=\"" . BASE . "/Comment/delete/" . $comment->comment_id . "\">delete</a>";
+                            echo "<a href=\"" . BASE . "/Comment/delete3/" . $comment->comment_id . "\">delete</a>";
                         }
                     }                    
                 ?>
