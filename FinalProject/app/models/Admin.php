@@ -4,6 +4,11 @@ namespace App\models;
 
 class Admin extends \App\core\Model {
 
+    public $report_id;
+    public $profile_id;
+    public $comment_id;
+    public $report_reason;
+
     public function getReports() {
         $stmt = self::$connection->prepare("SELECT * FROM report");
         $stmt->setFetchMode(\PDO::FETCH_GROUP|\PDO::FETCH_CLASS, "App\\models\\Admin");
