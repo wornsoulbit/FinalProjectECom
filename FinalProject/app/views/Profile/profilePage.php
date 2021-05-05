@@ -35,7 +35,7 @@
                         echo "<tr>
                         <td>$page->page_title</td>
                         <td>
-                        <a href='".BASE."/Page/viewPage/$page->page_id'>view this page</a>,
+                        <a href='".BASE."/Page/viewStarPage/$page->page_id'>view this page</a>,
                         <a href='".BASE."/Page/delete/$page->page_id'>delete</a>,
                         <a href='".BASE."/Page/edit/$page->page_id'>edit</a>,
                                         

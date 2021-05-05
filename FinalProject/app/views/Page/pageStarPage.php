@@ -19,11 +19,7 @@
                         }
                     }
 
-                    if ($_SESSION['profile_id'] != $data['page']->profile_id){
                         echo "<a href=\"" . BASE . "/Profile/index/" . "\"> Go back </a>";
-                    } else {
-                        echo "<a href='" . BASE . "/Page/index/" . $_SESSION['profile_id'] . "'> Return to page list </a>";
-                    }
                     
                 ?>
 
