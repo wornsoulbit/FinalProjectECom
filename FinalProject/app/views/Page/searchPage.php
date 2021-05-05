@@ -9,7 +9,15 @@
 			<input type="submit" name="action" value="Search page" id="searchButton"/>
 
 		</form>
-		<a href="<?= BASE ?>/Profile/index/<?= $_SESSION['profile_id']?>">Cancel</a> <br />
-	</div>
+
+	<?php 
+        if ($_SESSION['profile_id'] === null) {
+        	echo "<a href=\"" . BASE . "/Default/index/" . "\"> Go back </a>";
+        } else {
+             echo "<a href=\"" . BASE . "/Profile/index/" . "\"> Cancel </a>";;
+        }
+    
+	?>
+
 </body>
 </html>

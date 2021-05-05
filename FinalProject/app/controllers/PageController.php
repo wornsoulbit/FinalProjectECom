@@ -23,7 +23,13 @@ class PageController extends \App\core\Controller {
         $star = new \App\models\Star();
         $star = $star->find($_SESSION['profile_id'], $page_id);
 
-        $this->view('Page/pageSearchPage', ['comments' => $getAllComments, 'page' => $page, 'star' => $star]);
+        if($_SESSION['profile_id'] !== null){
+            $this->view('Page/pageSearchPage', ['comments' => $getAllComments, 'page' => $page, 'star' => $star]);
+        }else{
+            $this->view('Page/pageNotLoggedIn', ['comments' => $getAllComments, 'page' => $page]);
+        }
+
+        
     }
 
     function viewStarPage($page_id){
@@ -37,6 +43,7 @@ class PageController extends \App\core\Controller {
         $star = $star->find($_SESSION['profile_id'], $page_id);
 
         $this->view('Page/pageStarPage', ['comments' => $getAllComments, 'page' => $page, 'star' => $star]);
+        
     }
     
     
