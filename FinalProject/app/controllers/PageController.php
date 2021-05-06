@@ -20,12 +20,11 @@ class PageController extends \App\core\Controller {
         $page = new \App\models\Page();
         $page = $page->find($page_id);
 
-        $star = new \App\models\Star();
-        $star = $star->find($_SESSION['profile_id'], $page_id);
-
-        if($_SESSION['profile_id'] !== null){
+        if($_SESSION['profile_id'] ?? null !== null) {
+            $star = new \App\models\Star();
+            $star = $star->find($_SESSION['profile_id'], $page_id);
             $this->view('Page/pageSearchPage', ['comments' => $getAllComments, 'page' => $page, 'star' => $star]);
-        }else{
+        } else {
             $this->view('Page/pageNotLoggedIn', ['comments' => $getAllComments, 'page' => $page]);
         }
 

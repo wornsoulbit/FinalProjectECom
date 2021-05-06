@@ -15,11 +15,16 @@ class Report extends \App\core\Model {
         return $stmt->fetchAll();
     }
 
-    public function updateReport() {
+    public function insert() {
+        $stmt = self::$connection->prepare("INSERT INTO report(profile_id, comment_id, report_reason) VALUES (:profile_id, :comment_id, :report_reason)");
+        $stmt->execute(['profile_id' => $this->profile_id, 'comment_id' => $this->comment_id, 'report_reason' => $this->report_reason]);
+    }
+
+    public function update() {
 
     }
 
-    public function deleteReport() {
+    public function delete() {
         $stmt = self::$connection->prepare("DELETE FROM report WHERE report_id=:report_id");
         $stmt->execute(['report_id' => $this->report_id]);
     }
