@@ -11,7 +11,7 @@
 		</form>
 
 	<?php 
-        if ($_SESSION['profile_id'] === null) {
+        if ($_SESSION['profile_id'] ?? null === null) {
         	echo "<a href=\"" . BASE . "/Default/index/" . "\"> Go back </a>";
         } else {
              echo "<a href=\"" . BASE . "/Profile/index/" . "\"> Cancel </a>";;
