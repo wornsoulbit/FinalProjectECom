@@ -22,6 +22,18 @@ class User extends \App\core\Model{
 		return $stmt->fetch();
 	}
 
+	public function findId($user_id){
+		$stmt = self::$connection->prepare("SELECT * FROM user WHERE user_id = :user_id");
+		$stmt->execute(['user_id'=>$user_id]);
+		$stmt->setFetchMode(\PDO::FETCH_GROUP|\PDO::FETCH_CLASS, "App\\models\\User");
+		return $stmt->fetch();
+	}
+
+	public function update() {
+        $stmt = self::$connection->prepare("UPDATE user SET timeout=:timeout WHERE user_id=:user_id");
+        $stmt->execute(['timeout' => $this->timeout, 'user_id' => $this->user_id]);
+    }
+
 	public function insert(){
 		if($this->isValid()){
 			$stmt = self::$connection->prepare("INSERT INTO user(username, password_hash) VALUES (:username, :password_hash)");

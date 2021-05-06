@@ -6,10 +6,19 @@
 //3 - set the local timezone
 //4 - format and output
 
-function ConvertDateTime($datetime){
-	$date = new DateTime($datetime, new DateTimezone("UTC"));
+function ConvertDateTime(){
+	$date = new DateTime(null, new DateTimezone("UTC"));
+	$tz = new DateTimeZone(date_default_timezone_get());
+	$date->setTimeZone($tz);
+	return $date->format('Y-m-d H:i:sP e');
+}
+
+function timeoutDateTime(){
+	$date = new DateTime(null, new DateTimezone("UTC"));
+	$date->add(new DateInterval('PT0H2M0S'));
 	$tz = new DateTimeZone(date_default_timezone_get());
 	$date->setTimeZone($tz);
 	return $date->format('Y-m-d H:i:sP e');
 }
 ?>
+

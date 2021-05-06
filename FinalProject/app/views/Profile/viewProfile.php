@@ -7,7 +7,13 @@
             echo "<h2>Hello, welcome to " . $data['profile']->first_name . " " . $data['profile']->last_name . 
             "'s profile!</h2><br />";
 
+            if($_SESSION['role'] == "admin"){
+            	echo "<a href=\"" . BASE . "/Default/timeout/" . $data['profile']->profile_id . "\"> timeout this user</a>";
+            }
+            
+
     ?>
+
 
     <table>
 			<tr>

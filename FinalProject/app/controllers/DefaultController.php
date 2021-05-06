@@ -6,6 +6,24 @@ class DefaultController extends \App\core\Controller{
 		$this->view('Default/index');
 	}
 
+	function timeout($profile_id){
+		$profile = new \App\models\Profile();
+        $profile = $profile->find($profile_id);
+        $user_id = $profile->user_id;
+
+
+		$user = new \App\models\User();
+		$user = $user->findId($user_id);
+
+		$user->user_id = $user->user_id;
+		$user->timeout = timeoutDateTime();
+
+		$user->update();
+
+		header("location:" . BASE . "/Profile/viewProfile/$profile->profile_id");
+
+	}
+
 	function register(){
 		if(isset($_POST['action'])){
 			if($_POST['password'] == $_POST['password_confirm']){
@@ -36,12 +54,21 @@ class DefaultController extends \App\core\Controller{
 			if($user != null && password_verify($_POST['password'], $user->password_hash)){
 				$_SESSION['user_id'] = $user->user_id;
 				$_SESSION['username'] = $user->username;
-				$_SESSION['timeout'] = $user->timeout; // timeout is by default the current timestamp-> the day and time the account has been created
+				$_SESSION['role'] = $user->role;
+
 				$profile = new \App\models\Profile();
 				$profile = $profile->findUserId($_SESSION['user_id']);
 				$_SESSION['profile_id'] = $profile->profile_id;
 
-				header("location:" . BASE . "/Profile/index/$profile->profile_id");
+				$currentDateTime = ConvertDateTime();
+
+				if($currentDateTime < $user->timeout){
+					header("location:" . BASE . "/Default/logout/");
+				}else{
+					header("location:" . BASE . "/Profile/index/$profile->profile_id");
+				}
+
+				
 			}else
 				header('location:'.BASE.'/Default/login?error=Username/password mismatch!');
 		}else{
