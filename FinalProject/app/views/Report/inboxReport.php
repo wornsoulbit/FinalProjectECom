@@ -6,7 +6,7 @@
 <body>
 	<div id="page">
 		<div id="navBar">
-			<a href="<?=BASE?>/Admin/index/">Go back</a>
+			<a href="<?=BASE?>/Profile/index/">Go back</a>
 			<a href="<?=BASE?>/Default/logout">Logout</a>
 		</div>
 
@@ -15,16 +15,18 @@
                 if ($data['report']->report_id != null) {
                     echo "<table class=\"center\">
                     <tr>
-                        <th>Profile Name</th>
-                        <th>Comment Text</th>
-                        <th>Report Reason</th>
+                        <th>Reporter</th>
+                        <th>Comment text</th>
+                        <th>Report reason</th>
+                        <th>Reportee</th>
                         <th>Actions</th>
                     </tr>";
 
                     for ($i = 0; $i < sizeof($data['report']); $i++) {
                         echo "<tr>
-                                <td>" . $data['profile'][$i]->first_name . " " . $data['profile'][$i]->last_name . "</td>
+                                <td>" . $data['reporter'][$i]->first_name . " " . $data['profile'][$i]->last_name . "</td>
                                 <td>" . $data['comment'][$i]->comment_text . "</td>
+                                <td>" . $data['reportee'][$i]->first_name . " " . $data['profile'][$i]->last_name . "</td>
                                 <td>" . $data['report'][$i]->report_reason . "</td>
                                 <td></td>
                             </tr>";

@@ -8,7 +8,11 @@
             <?php
                 echo "<h2>Hello, " . $data['profile']->first_name . " " . $data['profile']->last_name . 
                 " welcome to your profile!</h2><br />";
-                ?>
+
+                if($_SESSION['role'] == "admin"){
+                echo "<a href=\"" . BASE . "/Report/getReports/" . "\"> View report inbox</a> <br />";
+            }
+            ?>
             <a href="<?= BASE ?>/Profile/edit/<?= $data['profile']->profile_id?>"> Modify your profile</a> <br />
             <a href='<?= BASE ?>/Profile/search'>Search a profile</a> <br>
             <a href='<?= BASE ?>/Page/searchPage'>Search a page</a> <br>
