@@ -9,6 +9,13 @@ class Report extends \App\core\Model {
     public $comment_id;
     public $report_reason;
 
+    public function find($report_id) {
+        $stmt = self::$connection->prepare("SELECT * FROM report WHERE report_id = :report_id");
+        $stmt->execute(['report_id' => $report_id]);
+        $stmt->setFetchMode(\PDO::FETCH_GROUP | \PDO::FETCH_CLASS, "App\\models\\Report");
+        return $stmt->fetch();
+    }
+
     public function getReports() {
         $stmt = self::$connection->prepare("SELECT * FROM report");
         $stmt->execute();

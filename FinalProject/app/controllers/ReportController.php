@@ -28,6 +28,18 @@ class ReportController extends \App\core\Controller {
         }
     }
 
+    function delete($report_id){
+        $report = new \App\models\Report();
+        $report = $report->find($report_id);
+
+        $comment = new \App\models\Comment();
+        $comment = $comment->find($report->comment_id);
+
+        $report->delete();
+
+        header("location:" . BASE . "/Report/report/$comment->comment_id");
+    }
+
     function getReports() {
         $reports = new \App\models\Report();
         $reports = $reports->getReports();

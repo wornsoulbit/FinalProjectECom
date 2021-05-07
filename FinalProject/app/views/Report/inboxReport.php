@@ -37,6 +37,9 @@
                                 <td>
                                      <a href=\"" . BASE . "/Profile/viewProfile/" . $data['reportee'][$i]->profile_id . "\"> View reportee's profile</a>
                                 </td>
+                                <td>
+                                     <a href=\"" . BASE . "/Report/delete/" . $data['report'][$i]->report_id . "\"> delete report</a>
+                                </td>
                                 
                             </tr>";
                     }
