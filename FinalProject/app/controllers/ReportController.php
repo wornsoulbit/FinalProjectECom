@@ -47,8 +47,8 @@ class ReportController extends \App\core\Controller {
 
         foreach($reports as $report) {
             array_push($reporterArr, $reporter->find($report->profile_id));
-            array_push($commentArr, $comment->find($report->comment_id));
             $comment = $comment->find($report->comment_id);
+            array_push($commentArr, $comment->find($report->comment_id));
             array_push($reporteeArr, $reportee->find($comment->profile_id));
         }
 
