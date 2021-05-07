@@ -48,7 +48,7 @@ class ReportController extends \App\core\Controller {
     }
 
 
-    function report2($comment_id) {
+    function report3($comment_id) {
         $comment = new \App\models\Comment();
         $comment = $comment->find($comment_id);
 
