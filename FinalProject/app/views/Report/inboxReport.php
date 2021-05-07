@@ -14,7 +14,7 @@
             <h2>Comment Reports</h2>
             
 			<?php 
-                if ($data['report'][1]->report_id ?? null !== null) {
+                if ($data['report'][0]->report_id ?? null !== null) {
                     echo "<table class=\"center\">
                     <tr>
                         <th>Reporter</th>
@@ -23,7 +23,7 @@
                         <th>Reportee</th>
                         <th>Actions</th>
                     </tr>";
-
+                    
                     for ($i = 0; $i < count($data['report']); $i++) {
                         echo "<tr>
                                 <td>" . $data['reporter'][$i]->first_name . " " . $data['reporter'][$i]->last_name . "</td>
