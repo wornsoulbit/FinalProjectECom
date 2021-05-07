@@ -47,7 +47,7 @@
                         if ($_SESSION['profile_id'] == $comment->profile_id) {
                             echo "<a href=\"" . BASE . "/Comment/delete3/" . $comment->comment_id . "\">delete</a>";
                         }else{
-                            echo "<a href=\"" . BASE . "/Report/report/$comment->comment_id" . "\"> Report </a> ";
+                            echo "<a href=\"" . BASE . "/Report/report3/$comment->comment_id" . "\"> Report </a> ";
                         }
                     }                    
                 ?>

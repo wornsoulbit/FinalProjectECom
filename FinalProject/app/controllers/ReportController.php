@@ -28,6 +28,46 @@ class ReportController extends \App\core\Controller {
         }
     }
 
+    function report2($comment_id) {
+        $comment = new \App\models\Comment();
+        $comment = $comment->find($comment_id);
+
+        $profile = new \App\models\Profile();
+        $profile = $profile->find($comment->profile_id);
+
+        if (isset($_POST["action"])) {
+            $report = new \App\models\Report();
+            $report->profile_id = $_SESSION['profile_id'];
+            $report->comment_id = $comment_id;
+            $report->report_reason = $_POST['report_reason'];
+            $report->insert();
+            header("location:" . BASE . "/Page/viewSearchPage/$comment->page_id");
+        } else {
+            $this->view('Report/reportReport', ['comment' => $comment, 'profile' => $profile]);
+        }
+    }
+
+
+    function report2($comment_id) {
+        $comment = new \App\models\Comment();
+        $comment = $comment->find($comment_id);
+
+        $profile = new \App\models\Profile();
+        $profile = $profile->find($comment->profile_id);
+
+        if (isset($_POST["action"])) {
+            $report = new \App\models\Report();
+            $report->profile_id = $_SESSION['profile_id'];
+            $report->comment_id = $comment_id;
+            $report->report_reason = $_POST['report_reason'];
+            $report->insert();
+            header("location:" . BASE . "/Page/viewStarPage/$comment->page_id");
+        } else {
+            $this->view('Report/reportReport', ['comment' => $comment, 'profile' => $profile]);
+        }
+    }
+
+
     function delete($report_id){
         $report = new \App\models\Report();
         $report = $report->find($report_id);
