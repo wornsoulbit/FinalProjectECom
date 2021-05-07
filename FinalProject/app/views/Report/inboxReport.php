@@ -28,7 +28,12 @@
                                 <td>" . $data['comment'][$i]->comment_text . "</td>
                                 <td>" . $data['reportee'][$i]->first_name . " " . $data['profile'][$i]->last_name . "</td>
                                 <td>" . $data['report'][$i]->report_reason . "</td>
-                                <td></td>
+                                <td>
+                                     <a href=\"" . BASE . "/Profile/viewProfile/" . $data['reporter']->profile_id . "\"> View reporter's profile</a>
+                                </td>
+                                <td>
+                                     <a href=\"" . BASE . "/Profile/viewProfile/" . $data['reportee']->profile_id . "\"> View reportee's profile</a>
+                                </td>
                             </tr>";
                     }
                 } else {
