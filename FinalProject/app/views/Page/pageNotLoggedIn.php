@@ -29,7 +29,7 @@
                     
                 <?php 
                     foreach ($data['comments'] as $comment) {
-                        echo "$comment->comment_text <a href=\"" . BASE . "/Report/report/$comment->comment_id" . "\"> Report </a>";  
+                        echo "$comment->comment_text";  
                     }                 
                 ?>
             </div>

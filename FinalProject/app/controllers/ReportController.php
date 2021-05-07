@@ -19,7 +19,7 @@ class ReportController extends \App\core\Controller {
         if (isset($_POST["action"])) {
             $report = new \App\models\Report();
             $report->profile_id = $comment->profile_id;
-            $report->comment_text = $comment->comment_text;
+            $report->comment_id = $comment_id;
             $report->report_reason = $_POST['report_reason'];
             $report->insert();
             header("location:" . BASE . "/Page/viewPage/$comment->page_id");
