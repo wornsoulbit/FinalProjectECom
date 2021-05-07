@@ -11,6 +11,7 @@ class Report extends \App\core\Model {
 
     public function getReports() {
         $stmt = self::$connection->prepare("SELECT * FROM report");
+        $stmt->execute();
         $stmt->setFetchMode(\PDO::FETCH_GROUP|\PDO::FETCH_CLASS, "App\\models\\Report");
         return $stmt->fetchAll();
     }

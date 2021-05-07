@@ -12,7 +12,8 @@
 
 		<div id="pageList">
 			<?php 
-                if ($data['report']->report_id != null) {
+            var_dump($data['report']);
+                if ($data['report'][1]->report_id !== null) {
                     echo "<table class=\"center\">
                     <tr>
                         <th>Reporter</th>
@@ -22,7 +23,7 @@
                         <th>Actions</th>
                     </tr>";
 
-                    for ($i = 0; $i < sizeof($data['report']); $i++) {
+                    for ($i = 0; $i < count($data['report']); $i++) {
                         echo "<tr>
                                 <td>" . $data['reporter'][$i]->first_name . " " . $data['reporter'][$i]->last_name . "</td>
                                 <td>" . $data['comment'][$i]->comment_text . "</td>
@@ -38,11 +39,11 @@
                                 
                             </tr>";
                     }
+                    echo "</table>";
                 } else {
                     echo "<p>There are no reports!</p>";
                 }
             ?>
-			</table>
 		</div>
 	</div>
 </body>

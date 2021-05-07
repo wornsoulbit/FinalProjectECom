@@ -18,7 +18,7 @@ class ReportController extends \App\core\Controller {
 
         if (isset($_POST["action"])) {
             $report = new \App\models\Report();
-            $report->profile_id = $comment->profile_id;
+            $report->profile_id = $_SESSION['profile_id'];
             $report->comment_id = $comment_id;
             $report->report_reason = $_POST['report_reason'];
             $report->insert();
@@ -30,7 +30,8 @@ class ReportController extends \App\core\Controller {
 
     function getReports() {
         $reports = new \App\models\Report();
-        $reports->getReports();
+        $reports = $reports->getReports();
+        // var_dump($reports);
 
         //person who made the report.
         $reporter = new \App\models\Profile();
@@ -44,15 +45,14 @@ class ReportController extends \App\core\Controller {
         $reportee = new \App\models\Profile();
         $reporteeArr = [];
 
-
-        if ($reports->report_id !== null) {
-            foreach($reports as $report) {
-                array_push($reporterArr, $profile->find($report->profile_id));
-                array_push($commentArr, $comment->find($report->comment_id));
-                $comment = $comment->find($report->comment_id);
-                array_push($reporteeArr, $profile->find($comment->profile_id));
-            }
+        foreach($reports as $report) {
+            array_push($reporterArr, $reporter->find($report->profile_id));
+            array_push($commentArr, $comment->find($report->comment_id));
+            $comment = $comment->find($report->comment_id);
+            array_push($reporteeArr, $reportee->find($comment->profile_id));
         }
+
+        // var_dump($reports, $reporterArr, $reporteeArr, $commentArr);
 
         $this->view('Report/inboxReport', ['report' => $reports, 'comment' => $commentArr, 'reporter' => $reporterArr, 'reportee' => $reporteeArr]);
     }
