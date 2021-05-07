@@ -72,12 +72,9 @@ class ReportController extends \App\core\Controller {
         $report = new \App\models\Report();
         $report = $report->find($report_id);
 
-        $comment = new \App\models\Comment();
-        $comment = $comment->find($report->comment_id);
-
         $report->delete();
 
-        header("location:" . BASE . "/Report/report/$comment->comment_id");
+        header("location:" . BASE . "/Report/getReports");
     }
 
     function getReports() {
