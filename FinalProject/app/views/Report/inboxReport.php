@@ -11,6 +11,8 @@
 		</div>
 
 		<div id="pageList">
+            <h2>Comment Reports</h2>
+            
 			<?php 
                 if ($data['report'][1]->report_id ?? null !== null) {
                     echo "<table class=\"center\">
