@@ -29,7 +29,12 @@ class User extends \App\core\Model{
 		return $stmt->fetch();
 	}
 
-	public function update() {
+	public function updateBan() {
+        $stmt = self::$connection->prepare("UPDATE user SET role= 'ban' WHERE user_id=:user_id");
+        $stmt->execute(['user_id' => $this->user_id]);
+    }
+
+	public function updateTimeout() {
         $stmt = self::$connection->prepare("UPDATE user SET timeout=:timeout WHERE user_id=:user_id");
         $stmt->execute(['timeout' => $this->timeout, 'user_id' => $this->user_id]);
     }

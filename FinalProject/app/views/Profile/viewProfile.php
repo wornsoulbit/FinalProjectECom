@@ -8,7 +8,8 @@
             "'s profile!</h2><br />";
 
             if($_SESSION['role'] == "admin"){
-            	echo "<a href=\"" . BASE . "/Default/timeout/" . $data['profile']->profile_id . "\"> timeout this user</a>";
+            	echo "<a href=\"" . BASE . "/Default/timeout/" . $data['profile']->profile_id . "\"> timeout this user</a> <br>";
+            	echo "<a href=\"" . BASE . "/Default/ban/" . $data['profile']->profile_id . "\"> ban this user</a>";
             }
             
 
