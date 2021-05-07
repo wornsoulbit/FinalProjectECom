@@ -39,7 +39,7 @@ class ReportController extends \App\core\Controller {
 
         //Need to get the comment text.
         $comment = new \App\models\Comment();
-        $commentArr[] = [];
+        $commentArr = [];
 
         //report against this person.
         $reportee = new \App\models\Profile();

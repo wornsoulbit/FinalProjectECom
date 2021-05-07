@@ -25,7 +25,7 @@
                     for ($i = 0; $i < count($data['report']); $i++) {
                         echo "<tr>
                                 <td>" . $data['reporter'][$i]->first_name . " " . $data['reporter'][$i]->last_name . "</td>
-                                <td>" . $data['comment'][$i + 1]->comment_text . "</td>
+                                <td>" . $data['comment'][$i]->comment_text . "</td>
                                 <td>" . $data['report'][$i]->report_reason . "</td>
                                 <td>" . $data['reportee'][$i]->first_name . " " . $data['reportee'][$i]->last_name . "</td>
 
