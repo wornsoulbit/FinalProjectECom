@@ -24,16 +24,18 @@
 
                     for ($i = 0; $i < sizeof($data['report']); $i++) {
                         echo "<tr>
-                                <td>" . $data['reporter'][$i]->first_name . " " . $data['profile'][$i]->last_name . "</td>
+                                <td>" . $data['reporter'][$i]->first_name . " " . $data['reporter'][$i]->last_name . "</td>
                                 <td>" . $data['comment'][$i]->comment_text . "</td>
-                                <td>" . $data['reportee'][$i]->first_name . " " . $data['profile'][$i]->last_name . "</td>
                                 <td>" . $data['report'][$i]->report_reason . "</td>
+                                <td>" . $data['reportee'][$i]->first_name . " " . $data['reportee'][$i]->last_name . "</td>
+
                                 <td>
                                      <a href=\"" . BASE . "/Profile/viewProfile/" . $data['reporter']->profile_id . "\"> View reporter's profile</a>
                                 </td>
                                 <td>
                                      <a href=\"" . BASE . "/Profile/viewProfile/" . $data['reportee']->profile_id . "\"> View reportee's profile</a>
                                 </td>
+                                
                             </tr>";
                     }
                 } else {
