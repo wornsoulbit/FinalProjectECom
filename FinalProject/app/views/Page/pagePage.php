@@ -46,9 +46,11 @@
                     
                 <?php 
                     foreach ($data['comments'] as $comment) {
-                        echo "$comment->comment_text <a href=\"" . BASE . "/Report/report/$comment->comment_id" . "\"> Report </a>";
+                        echo "$comment->comment_text";
                         if ($_SESSION['profile_id'] == $comment->profile_id) {
                             echo "<a href=\"" . BASE . "/Comment/delete/" . $comment->comment_id . "\">delete</a>";
+                        }else{
+                            echo "<a href=\"" . BASE . "/Report/report/$comment->comment_id" . "\"> Report </a> ";
                         }
                     }                    
                 ?>
