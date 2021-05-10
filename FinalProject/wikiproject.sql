@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 21, 2021 at 01:02 AM
+-- Generation Time: May 11, 2021 at 01:38 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -18,10 +18,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `finalproject`
+-- Database: `wikiproject`
 --
-CREATE DATABASE IF NOT EXISTS `finalproject` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `finalproject`;
+CREATE DATABASE IF NOT EXISTS `wikiproject` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `wikiproject`;
 
 -- --------------------------------------------------------
 
@@ -65,6 +65,13 @@ CREATE TABLE `profile` (
   `last_name` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `profile`
+--
+
+INSERT INTO `profile` (`profile_id`, `user_id`, `first_name`, `last_name`) VALUES
+(1, 1, 'Joe', 'Smith');
+
 -- --------------------------------------------------------
 
 --
@@ -77,19 +84,6 @@ CREATE TABLE `report` (
   `profile_id` int(11) NOT NULL,
   `comment_id` int(11) NOT NULL,
   `report_reason` varchar(64) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `request`
---
-
-DROP TABLE IF EXISTS `request`;
-CREATE TABLE `request` (
-  `request_id` int(11) NOT NULL,
-  `profile_id` int(11) NOT NULL,
-  `page_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -118,6 +112,13 @@ CREATE TABLE `user` (
   `timeout` timestamp NOT NULL DEFAULT current_timestamp(),
   `role` varchar(16) NOT NULL DEFAULT 'normal user'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`user_id`, `username`, `password_hash`, `timeout`, `role`) VALUES
+(1, 'admin', '$2y$10$AyejQ2dNSr1nQvBi0uu3Dulbd5f4zb0o2Y4lrjUvkI0oq1JYSthSy', '2021-05-10 23:35:32', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -155,14 +156,6 @@ ALTER TABLE `report`
   ADD KEY `report_comment_id_to_comment_id` (`comment_id`);
 
 --
--- Indexes for table `request`
---
-ALTER TABLE `request`
-  ADD PRIMARY KEY (`request_id`),
-  ADD KEY `request_profile_id_to_profile_id` (`profile_id`),
-  ADD KEY `request_page_id_to_page_id` (`page_id`);
-
---
 -- Indexes for table `star_page`
 --
 ALTER TABLE `star_page`
@@ -195,7 +188,7 @@ ALTER TABLE `page`
 -- AUTO_INCREMENT for table `profile`
 --
 ALTER TABLE `profile`
-  MODIFY `profile_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `profile_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `report`
@@ -204,16 +197,10 @@ ALTER TABLE `report`
   MODIFY `report_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `request`
---
-ALTER TABLE `request`
-  MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
@@ -244,13 +231,6 @@ ALTER TABLE `profile`
 ALTER TABLE `report`
   ADD CONSTRAINT `report_comment_id_to_comment_id` FOREIGN KEY (`comment_id`) REFERENCES `comment` (`comment_id`),
   ADD CONSTRAINT `report_profile_id_to_profile_id` FOREIGN KEY (`profile_id`) REFERENCES `profile` (`profile_id`);
-
---
--- Constraints for table `request`
---
-ALTER TABLE `request`
-  ADD CONSTRAINT `request_page_id_to_page_id` FOREIGN KEY (`page_id`) REFERENCES `page` (`page_id`),
-  ADD CONSTRAINT `request_profile_id_to_profile_id` FOREIGN KEY (`profile_id`) REFERENCES `profile` (`profile_id`);
 
 --
 -- Constraints for table `star_page`

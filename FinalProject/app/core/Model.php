@@ -6,7 +6,7 @@ class Model{
 
 	public function __construct(){
 		$host = "localhost";
-		$DBName = "finalProject";
+		$DBName = "wikiProject";
 		$username = "root";
 		$password = "";
 
