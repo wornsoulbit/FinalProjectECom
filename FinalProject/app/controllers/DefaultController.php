@@ -17,7 +17,7 @@ class DefaultController extends \App\core\Controller{
 		$user->user_id = $user->user_id;
 		$user->updateBan();
 
-		header("location:" . BASE . "/Profile/viewProfile/$profile->profile_id");
+		header("location:" . BASE . "/Report/getReports");
 	}
 
 	function timeout($profile_id){
@@ -33,7 +33,7 @@ class DefaultController extends \App\core\Controller{
 
 		$user->updateTimeout();
 
-		header("location:" . BASE . "/Profile/viewProfile/$profile->profile_id");
+		header("location:" . BASE . "/Report/getReports");
 
 	}
 
